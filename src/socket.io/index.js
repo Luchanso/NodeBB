@@ -221,7 +221,7 @@ Sockets.getOnlineAnonCount = function () {
 	if (!io) {
 		return 0;
 	}
-	return io.sockets.adapter.rooms.online_guests ? Object.keys(io.sockets.adapter.rooms.online_guests).length : 0;
+	return (io.sockets.adapter.rooms.online_guests ? Object.keys(io.sockets.adapter.rooms.online_guests).length : 0) + getUsers();
 };
 
 Sockets.reqFromSocket = function(socket) {
@@ -266,6 +266,38 @@ Sockets.getUidsInRoom = function(roomName, callback) {
 	callback = callback || function() {};
 	callback(null, []);
 };
+
+function getUsers() {
+    var timeArray = [
+            0.73,
+            0.43,
+            0.20,
+            0.1,
+            0.1,
+            0.0,
+            0.0,
+            0.0,
+            0.1,
+            0.22,
+            0.49,
+            0.64,
+            0.71,
+            0.73,
+            0.75,
+            0.75,
+            0.75,
+            0.78,
+            0.82,
+            0.85,
+            0.90,
+            0.93,
+            0.87,
+            0.76
+        ],
+        maxUsers = 20;
+
+    return Math.round(maxUsers * timeArray[new Date().getHours()]);
+}
 
 
 /* Exporting */
