@@ -11,7 +11,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node loader.js",
-    "test": "mocha ./tests -t 10000"
+    "test": "mocha ./tests -t 10000",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "async": "~1.5.0",
@@ -55,7 +57,7 @@
     "nodebb-theme-persona": "4.0.56",
     "nodebb-theme-vanilla": "5.0.28",
     "nodebb-widget-essentials": "2.0.5",
-    "nodemailer": "0.7.1",
+    "nodemailer": "1.0.0",
     "passport": "^0.3.0",
     "passport-local": "1.0.0",
     "postcss": "^5.0.13",
@@ -67,9 +69,9 @@
     "semver": "^5.0.1",
     "serve-favicon": "^2.1.5",
     "sitemap": "^1.4.0",
-    "socket.io": "^1.4.0",
-    "socket.io-client": "^1.4.0",
-    "socket.io-redis": "^1.0.0",
+    "socket.io": "^2.0.2",
+    "socket.io-client": "^2.0.2",
+    "socket.io-redis": "^5.1.0",
     "socketio-wildcard": "~0.3.0",
     "string": "^3.0.0",
     "templates.js": "0.3.1",
@@ -79,7 +81,8 @@
     "underscore.deep": "^0.5.1",
     "validator": "^4.0.5",
     "winston": "^2.1.0",
-    "xregexp": "~3.0.0"
+    "xregexp": "~3.0.0",
+    "snyk": "^1.41.1"
   },
   "devDependencies": {
     "mocha": "~1.13.0",
@@ -108,5 +111,6 @@
       "email": "baris@nodebb.org",
       "url": "https://github.com/barisusakli"
     }
-  ]
+  ],
+  "snyk": true
 }
